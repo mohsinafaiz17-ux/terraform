@@ -1,0 +1,19 @@
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mDuplicate output definition[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on output.tf line 1:
+[31m│[0m [0m   1: [4moutput "instance_ip"[0m {[0m
+[31m│[0m [0m
+[31m│[0m [0mAn output named "instance_ip" was already defined at main.tf:134,1-21.
+[31m│[0m [0mOutput names must be unique within a module.
+[31m╵[0m[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mDuplicate provider configuration[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on provider.tf line 1:
+[31m│[0m [0m   1: [4mprovider "aws"[0m {[0m
+[31m│[0m [0m
+[31m│[0m [0mA default (non-aliased) provider configuration for "aws" was already given
+[31m│[0m [0mat main.tf:1,1-15. If multiple configurations are required, set the "alias"
+[31m│[0m [0margument for alternative configurations.
+[31m╵[0m[0m
