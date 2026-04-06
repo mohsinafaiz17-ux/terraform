@@ -115,3 +115,12 @@ resource "aws_instance" "web_server" {
 }
 
 
+# S3 Bucket
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "mohsina-terraform-bucket-123457"  # ⚠️ must be globally unique
+
+  tags = {
+    Name = "My-Terraform-Bucket"
+  }
+}
+
