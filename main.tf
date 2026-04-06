@@ -32,8 +32,28 @@ resource "aws_route_table_association" "public_assoc" {
   route_table_id = aws_route_table.public_rt.id
 }
 
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+}
+
 resource "aws_instance" "web_server" {
-  ami           = "ami-0c55b159cbfafe1f0"
+  ami           = data.aws_ami.amazon_linux.id
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
 
@@ -43,7 +63,7 @@ resource "aws_instance" "web_server" {
 }
 
 resource "aws_instance" "web_server1" {
-  ami           = "ami-0c55b159cbfafe1f0"
+  ami           = data.aws_ami.amazon_linux.id
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
 
