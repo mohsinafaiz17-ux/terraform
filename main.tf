@@ -125,8 +125,3 @@ resource "aws_instance" "web_server1" {
     Name = "Terraform-Web1"
   }
 }
-
-# Output
-output "instance_ip" {
-  value = aws_instance.web_server.public_ip
-}
